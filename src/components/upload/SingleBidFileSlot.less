@@ -1,0 +1,253 @@
+@import 'src/assets/styles/variables.less';
+
+.single-bid-file-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.single-bid-file-slot__hint {
+  margin-bottom: 14px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #999999;
+  text-align: center;
+}
+
+.single-bid-file-slot__dash {
+  flex: 1;
+  min-height: 140px;
+  border: 1px dashed #d8d8d8;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    border-color: @primary-color;
+    .single-bid-file-slot__fake-btn{
+      border-color: @primary-color;
+      color: @primary-color;
+    }
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px rgba(253, 99, 100, 0.25);
+  }
+
+  &.is-uploading {
+    cursor: not-allowed;
+    opacity: 0.85;
+  }
+}
+
+.single-bid-file-slot__fake-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  font-size: 14px;
+  color: @primary-text;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.single-bid-file-slot__upload-ico {
+  font-size: 14px;
+  color: #999999;
+}
+
+.single-bid-file-slot__star {
+  color: @primary-color;
+  font-weight: 600;
+}
+
+.single-bid-file-slot__native-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.single-bid-file-slot__card {
+  position: relative;
+  margin-top: 10px;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  /* 关闭按钮：仅 hover 卡片（或键盘焦点在卡片内）时显示 */
+  &:hover .single-bid-file-slot__remove,
+  &:focus-within .single-bid-file-slot__remove {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.single-bid-file-slot__remove {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  z-index: 1;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #c9c9c9;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 16px;
+  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.15s ease,
+    visibility 0.15s ease,
+    background-color 0.15s ease;
+
+  &:hover {
+    color: #999999;
+  }
+
+  &:focus-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    outline: 2px solid rgba(253, 99, 100, 0.45);
+    outline-offset: 1px;
+  }
+}
+
+.single-bid-file-slot__card-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.single-bid-file-slot__type-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  overflow: hidden;
+
+  &__img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+    vertical-align: top;
+  }
+}
+
+.single-bid-file-slot__card-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.single-bid-file-slot__name {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #242524;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.single-bid-file-slot__meta {
+  margin-top: 2px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #999999;
+}
+
+.single-bid-file-slot__progress-label {
+  color: #999999;
+}
+
+.single-bid-file-slot__err-label {
+  color: #fd6364;
+}
+
+.single-bid-file-slot__progress-bar {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.single-bid-file-slot__progress-bar.ant-progress-line {
+  margin-bottom: 0;
+}
+
+/* 选标：分区上传（与 default 互斥，完整类名） */
+.single-bid-file-slot__dash.single-bid-file-slot__dash--selection {
+  min-height: 180px;
+  border: 1px dashed transparent;
+  background: rgba(255, 87, 73, 0.06);
+  justify-content: center;
+
+  &:hover:not(.single-bid-file-slot__dash--selection-disabled) {
+    border-color: #ff5749;
+    border-style: dashed;
+  }
+}
+
+.single-bid-file-slot__dash.single-bid-file-slot__dash--selection-disabled {
+  background: rgba(255, 87, 73, 0.04);
+  cursor: not-allowed;
+  opacity: 1;
+
+  &:hover {
+    border-color: transparent !important;
+  }
+}
+
+.single-bid-file-slot__selection-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.single-bid-file-slot__selection-ico {
+  font-size: 40px;
+  line-height: 1;
+  color: #ff5749;
+}
+
+.single-bid-file-slot__selection-hint {
+  margin: 0;
+  max-width: 100%;
+  padding: 0 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #666666;
+}

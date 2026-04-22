@@ -1,0 +1,533 @@
+@import 'src/assets/styles/variables.less';
+
+@login-modal-width: 860px;
+@login-modal-height: 422px;
+@login-col-visual: 381px;
+@login-col-form: 369px;
+@login-field-h: 40px;
+
+.ai-login-modal {
+  // antd v6：白底/内边距/圆角/阴影在 .ant-modal-container 上
+  .ant-modal-container {
+    padding: 0 !important;
+    border-radius: 12px !important;
+    // 设计稿：玫红外发光（与子级 shadow 二选一，避免被 overflow 裁切）
+    box-shadow: 0 0 10px 0 fade(@primary-color, 30%) !important;
+    background: transparent !important;
+    overflow: hidden !important;
+  }
+
+  // 覆盖全局 Modal.less 的渐变底，登录卡片自行绘制（v6 为 .ant-modal-container）
+  .ant-modal-container {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+
+    &::before,
+    &::after {
+      display: none !important;
+    }
+  }
+
+  .ant-modal-body {
+    padding: 0 !important;
+  }
+}
+
+.ai-login-modal__card {
+  display: flex;
+  width: @login-modal-width;
+  height: @login-modal-height;
+  min-width: @login-modal-width;
+  max-width: calc(100vw - 32px);
+  min-height: @login-modal-height;
+  border-radius: 12px;
+  overflow: hidden;
+  background: @sider-bg;
+}
+
+.ai-login-modal__visual {
+  flex: 1;
+  min-height: @login-modal-height;
+  background: @sider-bg center / cover no-repeat;
+  overflow: hidden;
+}
+
+.ai-login-modal__form-col {
+  position: relative;
+  flex: 0 0 @login-col-form;
+  box-sizing: border-box;
+  min-height: @login-modal-height;
+  padding: 36px 24px 32px;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: @sider-bg;
+}
+
+.ai-login-modal__close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #878787;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    color: @text-primary;
+    background: @border-light;
+  }
+}
+
+.ai-login-modal__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: @primary-color;
+  text-align: center;
+}
+
+.ai-login-modal__tabs {
+  width: 100%;
+  max-width: 321px;
+  margin-top: 24px;
+}
+
+.ai-login-modal__tabs-track {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.ai-login-modal__tab {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px 10px;
+  border: none;
+  background: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #666;
+  }
+}
+
+.ai-login-modal__tab--active {
+  color: #333;
+  font-weight: 400;
+  &:hover {
+    color: #333;
+  }
+}
+
+.ai-login-modal__tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 16px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(270deg, rgba(255, 132, 135, 0.0001) 0%, #ff4d4f 100%);
+  transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.ai-login-modal__form {
+  width: 100%;
+  max-width: 321px;
+  .ant-form-item {
+    margin-bottom: 16px;
+  }
+
+  .ant-form-item:last-child {
+    margin-bottom: 0;
+  }
+
+  // large 手机号（含区号组合）与单行 Input 统一高度
+  .ant-form-item-control-input-content > *:has(> input.ant-input),
+  .ant-form-item-control-input-content > .ai-login-phone-composite {
+    min-height: @login-field-h;
+    height: @login-field-h;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    width: 100% !important;
+  }
+
+  .ant-input:not(.ai-login-phone-composite),
+  .ant-input-affix-wrapper:not(.ai-login-phone-composite__input) {
+    border-radius: 4px;
+    border-color: #d8d8d8;
+    font-size: 14px;
+    font-weight: 600;
+    color: @text-primary;
+
+    &:hover,
+    &:focus,
+    &.ant-input-affix-wrapper-focused {
+      border-color: @accent-purple;
+    }
+    .ant-form-item-explain-error{
+      font-size: 14px;
+      color: #FD6364;
+      font-weight: 400;
+      line-height: 16px;
+    }
+  }
+
+  // 手机号是普通 input.ant-input，密码是 affix 内层 input；统一 placeholder（与 @text-placeholder 一致，对齐密码框观感）
+  .ant-form-item-control-input-content input.ant-input::placeholder {
+    font-weight: 400;
+    color: @text-placeholder;
+    opacity: 1;
+  }
+
+  .ant-input-affix-wrapper > input.ant-input {
+    font-weight: 600;
+  }
+
+  /*
+   * 区号 + 手机号：父级使用 ant-input / ant-input-lg，整框一条边线；
+   * 内部 Select、Input 无边框，与设计稿「单蓝框」一致。
+   */
+  .ai-login-phone-composite.ant-input {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    min-height: @login-field-h;
+    height: @login-field-h;
+    padding: 0;
+    margin: 0;
+    line-height: 1.5715;
+    font-size: 14px;
+    font-weight: 600;
+    color: @text-primary;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    background: @sider-bg;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:hover,
+    &:focus-within {
+      border-color: @accent-purple;
+      box-shadow: 0 0 0 2px rgba(92, 89, 198, 0.12);
+    }
+  }
+
+  .ai-login-phone-composite__addon {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    padding: 0;
+
+    .ai-login-addon-select.ant-select .ant-select-selector {
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+  }
+
+  .ai-login-phone-composite__divider {
+    flex: 0 0 1px;
+    width: 1px;
+    align-self: stretch;
+    margin: 8px 0;
+    min-height: 18px;
+    background: #d8d8d8;
+  }
+
+  .ai-login-phone-composite__input {
+    flex: 1;
+    min-width: 0;
+    height: 100% !important;
+  }
+
+  .ai-login-phone-composite__input.ant-input-affix-wrapper,
+  .ai-login-phone-composite .ai-login-phone-composite__input.ant-input-affix-wrapper {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    margin: 0;
+  }
+
+  .ai-login-phone-composite input.ant-input {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  /* 去掉 Chrome/Safari 自动填充后的黄色背景 */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px @sider-bg inset !important;
+    box-shadow: 0 0 0 1000px @sider-bg inset !important;
+    -webkit-text-fill-color: @text-primary !important;
+    caret-color: @caret-color;
+    transition: background-color 50000s ease-in-out 0s;
+  }
+}
+
+.ai-login-modal__submit.ant-btn.ant-btn-primary {
+  height: 44px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.ai-login-modal__agreement {
+  margin-top: 16px;
+  max-width: 321px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #666666;
+  text-align: center;
+}
+
+.ai-login-modal__link {
+  color: @accent-purple;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+    text-decoration: underline;
+  }
+}
+
+.ai-login-modal__remember {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 321px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.ai-login-link-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: @accent-purple;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.ai-login-link-btn:hover {
+  text-decoration: underline;
+}
+
+.ai-login-forgot-hint {
+  margin-left: 4px;
+  color: #999;
+  cursor: help;
+}
+
+.ai-login-modal__switch-tip,
+.ai-login-center-tip {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.ai-login-modal__switch-hint {
+  margin-right: 4px;
+}
+
+.ai-login-modal__submit-secondary {
+  margin-top: 8px;
+}
+
+.ai-login-pwd-tip {
+  max-width: 260px;
+  font-size: 12px;
+}
+
+.ai-login-addon-select {
+  min-width: 72px;
+}
+
+/* 区号下拉：选中项紫色文案 + 右侧对钩（menuItemSelectedIcon） */
+.ai-login-addon-dropdown {
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background-color: #f5f5f5;
+
+    .ant-select-item-option-content {
+      color: @accent-purple;
+      font-weight: 500;
+    }
+  }
+
+  .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    background-color: #f5f5f5;
+  }
+
+  .ai-login-addon-check-icon {
+    color: @accent-purple;
+    font-size: 12px;
+  }
+}
+
+/* 手机号 + 验证码：单框 + 竖线 + 右侧操作 */
+.ai-login-combined-input {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-height: @login-field-h;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  background: @sider-bg;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: @accent-purple;
+  }
+
+  &:focus-within {
+    border-color: @accent-purple;
+  }
+
+  .ant-form-item-has-error & {
+    border-color: @status-failed;
+  }
+}
+
+.ai-login-combined-input__field.ant-input {
+  flex: 1;
+  min-width: 0;
+  height: @login-field-h - 2px;
+  margin: 0;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 4px 0 0 4px;
+  font-weight: 600;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+
+  &::placeholder {
+    font-weight: 400;
+    color: @text-placeholder;
+  }
+}
+
+.ai-login-combined-input__divider {
+  flex: 0 0 1px;
+  width: 1px;
+  margin: 10px 0;
+  background: #d8d8d8;
+  align-self: center;
+  min-height: 18px;
+}
+
+.ai-login-combined-input__action {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  min-width: 100px;
+}
+
+.ai-login-combined-input__btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: @text-primary;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    color: @accent-purple;
+  }
+
+  &:disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+  }
+}
+
+.ai-login-combined-input__timer {
+  font-size: 14px;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+/* 记住我：选中 #5C59C6，未选中 hover 边框 #FF4D4F */
+.ai-login-modal {
+  .ant-checkbox-wrapper:not(:hover) .ant-checkbox .ant-checkbox-inner {
+    border-color: #d8d8d8;
+  }
+
+  .ant-checkbox:hover .ant-checkbox-inner,
+  .ant-checkbox-wrapper:hover .ant-checkbox-inner {
+    border-color: #ff4d4f !important;
+  }
+
+  .ant-checkbox-checked .ant-checkbox-inner,
+  .ant-checkbox-checked:hover .ant-checkbox-inner {
+    background-color: @accent-purple !important;
+    border-color: @accent-purple !important;
+  }
+}
+
+.ai-login-modal__forgot-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ai-login-modal__forgot-text {
+  color: #666666;
+}
+
+#captcha-box.tac-captcha-close:empty {
+  display: none;
+}
+
+.ai-login-modal__ent-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 12px;
+  gap: 12px;
+  .ai-login-modal__ent-input {
+    width: 200px;
+  }
+}

@@ -1,0 +1,10 @@
+---
+description: 本项目从 figma-t MCP 读取 Figma 设计
+alwaysApply: true
+---
+
+# Figma MCP（本项目默认）
+
+- 凡涉及 **从 Figma 拉取数据、读节点、下载 Figma 资源、按设计稿实现**，必须使用 **`figma-t`**（MCP 标识 **`user-figma-t`**）。
+- 使用工具：`get_figma_data`、`download_figma_images`（参数与 Figma URL 中的 `fileKey`、`node-id` 一致；`node-id` 中的 `-` 转为 `:`）。
+- **不要**使用其他 Figma MCP（例如仅 OAuth 的远程 Figma 插件、`plugin-figma-figma` 等），除非用户明确要求切换。

@@ -1,0 +1,65 @@
+@import 'src/assets/styles/variables.less';
+
+.bdd-todo-groups-panel {
+  .bd-todo-panel__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 8px;
+  }
+
+  .bd-todo-group {
+    border: 1px solid @border-color;
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #fff;
+  }
+
+  .bd-todo-group__title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: @text-primary;
+  }
+
+  .bd-todo-group__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .bd-todo-group__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    border-top: 1px solid @border-light;
+  }
+
+  .bd-todo-group__item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .bd-todo-group__page {
+    flex: 1;
+    font-size: 13px;
+    color: @text-secondary;
+  }
+
+  .bd-todo-group__loc {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #4a56b5;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .bd-todo-group__loc:hover {
+    text-decoration: underline;
+  }
+}

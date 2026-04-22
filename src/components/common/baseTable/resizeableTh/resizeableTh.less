@@ -1,0 +1,99 @@
+.ant-table-thead > tr > th.cloud-th-resizeable {
+    position: relative;
+    background-color: #F5F5F5;
+    border-right: none;
+    .cloud-th-resizeable-content {
+        padding: 0;
+        color: #222;
+        font-size: 14px;
+        font-weight: bold;
+        white-space: nowrap;
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+}
+.ant-table-thead > tr > th.table-fix-level1 {
+    .cloud-th-resizeable-content {
+        display: flex;
+        .ant-table-cell-content {
+            width: 100%;
+        }
+        .filter-thead-title {
+            width: 100%;
+        }
+    }
+}
+.ant-table-thead > tr > th.ant-table-column-has-sorters.cloud-th-resizeable {
+    .ant-table-column-sorter-down,
+    .ant-table-column-sorter-up {
+        color: #999999;
+    }
+    .ant-table-column-sorter-down.active,
+    .ant-table-column-sorter-up.active {
+        color: #676d79;
+    }
+    &:hover {
+        .cloud-th-resizeable-content {
+            color: #1890ff;
+        }
+        background-color: #e7f0fa !important;
+        .ant-table-column-sorter-up,
+        .ant-table-column-sorter-down {
+            color: #1890ff;
+        }
+    }
+}
+.cloud-th-resizeable .cloud-th-resize-bar {
+    position: absolute;
+    right: -4px;
+    top: 0;
+    bottom: 0;
+    width: 7px;
+    cursor: col-resize;
+    background: transparent;
+    z-index: 1;
+    > i {
+        position: absolute;
+        width: 1px;
+        left: 2px;
+        height: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #dfdfdf;
+    }
+}
+
+.ant-table-small {
+    .cloud-th-resizeable .cloud-th-resize-bar {
+        
+        > i {
+            height: 16px;
+        }
+    }
+}
+
+.ant-table-bordered {
+    .cloud-th-resizeable .cloud-th-resize-bar {
+        &:hover {
+            background: rgba(12, 27, 41, 0.05);
+        }
+        > i {
+            position: absolute;
+            width: 1px;
+            left: 3px;
+            height: 100%;
+            background: rgba(207, 219, 230, 0.3);
+        }
+    }
+}
+.cloud-th-resize-line {
+    position: fixed;
+    width: 1px;
+    z-index: 1031;
+    border-right: 1px dashed #777;
+}
+.ant-table-cell-scrollbar {
+    display: table-cell;
+}

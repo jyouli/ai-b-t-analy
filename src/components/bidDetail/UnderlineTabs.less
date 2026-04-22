@@ -1,0 +1,92 @@
+@import 'src/assets/styles/variables.less';
+
+.bdd-underline-tabs {
+  &.bd-underline-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .bd-underline-tabs__scroll {
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .bd-underline-tabs__scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bd-underline-tabs__inner {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 24px;
+    padding: 4px 4px 0;
+    white-space: nowrap;
+  }
+
+  .bd-underline-tabs__item {
+    position: relative;
+    padding: 8px 0 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .bd-underline-tabs__item:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .bd-underline-tabs__item.is-active {
+    color: #333;
+    font-weight: 600;
+  }
+
+  .bd-underline-tabs__label {
+    position: relative;
+    z-index: 1;
+  }
+
+  .bd-underline-tabs__underline {
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    transform: translateX(-50%);
+    width: 13px;
+    height: 2px;
+    border-radius: 1px;
+    background: linear-gradient(139deg, @primary-color 45%, #a689f4 97%, #e74959 100%);
+    box-shadow: 0 15.89px 21.19px rgba(0, 0, 0, 0.07);
+  }
+
+  .bd-underline-tabs__arrow {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid @border-color;
+    border-radius: 6px;
+    background: #fff;
+    color: @text-secondary;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .bd-underline-tabs__arrow:hover:not(:disabled) {
+    border-color: @primary-color;
+    color: @primary-color;
+  }
+
+  .bd-underline-tabs__arrow:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

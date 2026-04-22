@@ -1,0 +1,597 @@
+@import 'src/assets/styles/variables.less';
+
+.svg-inline-root {
+  display: inline-flex;
+  line-height: 0;
+  color: inherit;
+  svg {
+    display: block;
+  }
+}
+
+.svg-icon {
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.ai-b-t-layout {
+  height: 100%;
+  .ant-layout-sider {
+    background: @sider-bg !important;
+
+    .ant-layout-sider-children {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    &.ant-layout-sider-collapsed {
+      background: @sider-rail-bg !important;
+      .ai-b-t-rail {
+        width: @sider-rail-width;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background: @sider-rail-bg;
+        border-right: 1px solid @sider-rail-border;
+      }
+    }
+  }
+
+  .ai-b-t-sider-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    background: @sider-bg;
+    border-right: 1px solid @sider-rail-border;
+  }
+
+  .ai-b-t-logo {
+    height: 72px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-shrink: 0;
+    border-bottom: 1px solid @border-light;
+
+    .logo-brand {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      min-width: 0;
+    }
+
+    .logo-icon {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .logo-text {
+      flex: 1;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.4;
+      color: @sider-title-color;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .ai-b-t-logo-collapse {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: @sider-hit-size;
+      height: @sider-hit-size;
+      flex-shrink: 0;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: @text-secondary;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+      &:hover {
+        color: @primary-color;
+        background: @sider-menu-hover-bg;
+      }
+    }
+  }
+
+  .ai-b-t-collapse-svg {
+    width: 22px;
+    height: 22px;
+    color: inherit;
+  }
+
+  .ai-b-t-collapse-icon.iconfont {
+    font-size: 22px;
+    line-height: 1;
+    color: inherit;
+  }
+
+  .ai-b-t-menu-wrap {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+  }
+  .ai-b-t-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .ai-b-t-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    margin: 0 16px;
+    min-height: @sider-hit-size;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 8px;
+    color: @sider-menu-text;
+    transition: background 0.2s, color 0.2s;
+    .ai-b-t-menu-item-label {
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 400;
+      color: inherit;
+    }
+    &:hover:not(.active) {
+      background: @sider-menu-hover-bg;
+      color: @primary-color;
+    }
+    &.active {
+      background: @sider-selected-bg !important;
+      color: @primary-color;
+      font-weight: 600;
+      .ai-b-t-menu-item-label {
+        font-weight: 600;
+        color: @primary-color;
+      }
+    }
+  }
+
+  .ai-b-t-menu-svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: inherit;
+  }
+
+  .ai-b-t-menu-icon.iconfont {
+    font-size: 16px;
+    line-height: 1;
+    flex-shrink: 0;
+    color: inherit;
+  }
+
+  .ai-b-t-user-area {
+    min-height: 68px;
+    padding: 12px 16px;
+    border-top: 1px solid @border-light;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    flex-shrink: 0;
+    .ai-b-t-user-profile {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      flex: 1;
+      &.ai-b-t-user-profile--clickable,
+      &.ai-b-t-user-profile--trigger {
+        cursor: pointer;
+      }
+    }
+    .ai-b-t-user-actions {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-shrink: 0;
+    }
+    .user-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: @primary-color;
+      flex-shrink: 0;
+      font-size: 12px !important;
+      .ant-avatar-string{
+        font-size: 12px;
+      }
+    }
+    .user-name {
+      flex: 1;
+      min-width: 0;
+      font-size: 14px;
+      color: @text-primary;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .ai-b-t-user-icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: @sider-hit-size;
+      height: @sider-hit-size;
+      cursor: pointer;
+      color: @text-secondary;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+      &:hover {
+        color: @primary-color;
+        background: @sider-menu-hover-bg;
+      }
+      &[href] {
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+    }
+    .settings-trigger {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+
+  .ai-b-t-action-svg {
+    width: 22px;
+    height: 22px;
+    color: inherit;
+  }
+
+  .ai-b-t-main-layout {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  &.ai-b-t-layout--no-sider .ai-b-t-main-layout {
+    flex: 1;
+    width: 100%;
+  }
+
+  .ai-b-t-content {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    background: @sider-outer-bg;
+
+    &--fullscreen {
+      flex: 1;
+      min-height: 0;
+    }
+  }
+}
+
+// 角标锚定在铃铛可视区域（22×22），避免相对整块按钮偏移导致「飘」在图标外
+.ai-b-t-bell-anchor {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+// 消息角标：个位 18×18 正圆；两位及以上为胶囊（高 18、圆角 9）。
+// 设计 9px 字重，浏览器常限制最小 12px：用 12px 基准 + 内容 scale(0.75) 模拟 9px。
+@badge-text-base: 12px;
+@badge-text-scale: 0.75;
+
+.ai-b-t-msg-badge.ant-badge {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+
+  .ant-badge-count {
+    background: @primary-color !important;
+    color: #fff !important;
+    font-size: @badge-text-base !important;
+    font-weight: 400 !important;
+    height: 18px !important;
+    min-height: 18px !important;
+    padding: 0 !important;
+    border: 1px solid @badge-count-border !important;
+    box-shadow: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 18px !important;
+    box-sizing: border-box !important;
+    // 相对 22px 锚点略往左下收，使红点压住铃铛一角（设计稿）
+    transform: translate(36%, -42%) !important;
+    transform-origin: 100% 0% !important;
+  }
+
+  // 个位数：18×18 正圆
+  .ant-badge-count:not(.ant-badge-multiple-words) {
+    width: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-variant-numeric: tabular-nums;
+  }
+
+  // 两位及以上：椭圆胶囊，高度与圆角规格不变
+  .ant-badge-count.ant-badge-multiple-words {
+    width: auto !important;
+    min-width: 18px !important;
+    max-width: none !important;
+    padding: 0 6px !important;
+    border-radius: 9px !important;
+  }
+
+  // 多位数：bdi 内 scale，红底高度不变
+  .ant-badge-count.ant-badge-multiple-words:has(bdi) bdi {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    transform: scale(@badge-text-scale) !important;
+    transform-origin: center center !important;
+  }
+
+  // 个位数：bdi 铺满圆形容器，scale 放在数字节点上，避免缩放层导致 flex 偏移
+  .ant-badge-count:not(.ant-badge-multiple-words) bdi {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+  .ant-badge-count:not(.ant-badge-multiple-words) .ant-scroll-number-only {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+  .ant-badge-count:not(.ant-badge-multiple-words) .ant-scroll-number-only-unit {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    // 先上移再缩放，减轻字形略偏下
+    transform: translateY(-1px) scale(@badge-text-scale) !important;
+    transform-origin: center center !important;
+  }
+
+  // 溢出 "99+" 等无 bdi：整体先按 0.75 缩放，尺寸预放大保证视觉仍为 18 高 / 圆角 9
+  .ant-badge-count.ant-badge-multiple-words:not(:has(bdi)) {
+    height: 24px !important;
+    min-height: 24px !important;
+    line-height: 24px !important;
+    min-width: 40px !important;
+    padding: 0 10px !important;
+    border-radius: 12px !important;
+    transform: translate(36%, -42%) scale(@badge-text-scale) !important;
+    transform-origin: 100% 0% !important;
+  }
+
+  .ant-scroll-number-only,
+  .ant-scroll-number-only-unit {
+    font-size: @badge-text-base !important;
+    line-height: 1 !important;
+  }
+}
+
+// ========== 收起态轨道导航 (Figma 设计) ==========
+.ai-b-t-rail {
+  width: @sider-rail-width;
+  flex-shrink: 0;
+
+  .ai-b-t-rail-logo {
+    position: relative;
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    // hover 灰底与菜单一致：仅 44×44 居中，不占满整格
+    &::before {
+      content: '';
+      position: absolute;
+      width: @sider-hit-size;
+      height: @sider-hit-size;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 8px;
+      z-index: 0;
+      pointer-events: none;
+      transition: background 0.2s;
+    }
+    &:hover::before {
+      background: @sider-menu-hover-bg;
+    }
+  }
+  .ai-b-t-rail-logo-img {
+    position: relative;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: opacity 0.2s;
+  }
+  .ai-b-t-rail-logo-expand {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    color: @text-secondary;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .ai-b-t-rail-logo-expand-svg {
+    width: 22px;
+    height: 22px;
+    color: inherit;
+  }
+
+  .ai-b-t-rail-logo-expand-icon.iconfont {
+    font-size: 22px;
+    line-height: 1;
+    color: inherit;
+  }
+  .ai-b-t-rail-logo:hover {
+    .ai-b-t-rail-logo-img {
+      opacity: 0;
+    }
+    .ai-b-t-rail-logo-expand {
+      opacity: 1;
+      color: @primary-color;
+    }
+  }
+
+  .ai-b-t-rail-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0;
+    gap: 8px;
+  }
+  .ai-b-t-rail-nav-item {
+    width: @sider-hit-size;
+    height: @sider-hit-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    color: @sider-menu-text;
+    transition: background 0.2s, color 0.2s;
+    &:hover:not(.active) {
+      background: @sider-menu-hover-bg;
+      color: @primary-color;
+    }
+    &.active {
+      background: @sider-rail-active-bg !important;
+      color: @primary-color;
+    }
+  }
+
+  .ai-b-t-rail-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 16px 0 28px;
+    flex-shrink: 0;
+  }
+  .ai-b-t-rail-icon-wrap {
+    width: @sider-hit-size;
+    height: @sider-hit-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    color: @text-secondary;
+    transition: background 0.2s, color 0.2s;
+    &:hover {
+      background: @sider-menu-hover-bg;
+      color: @primary-color;
+    }
+    /* 管理后台外链与 icon 按钮同形 */
+    &[href] {
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+  }
+  .ai-b-t-rail-avatar {
+    margin-top: 12px;
+    line-height: 0;
+    .ai-b-t-rail-avatar-hit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      margin: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      line-height: 0;
+      border-radius: 50%;
+    }
+    .ai-b-t-rail-avatar-inner {
+      background: @primary-color !important;
+      color: #fff !important;
+      font-size: 12px;
+      .ant-avatar-string{
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+/* 头像退出 Popover 挂到 body，需与 variables 同源 */
+.ai-b-t-logout-popover-overlay {
+  .ant-popover-inner {
+    padding: 6px;
+  }
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+}
+
+.ai-b-t-logout-popover-item {
+  min-width: 112px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: @text-secondary;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+  box-sizing: border-box;
+  &:hover {
+    background: @sider-menu-hover-bg;
+  }
+}
+
+/* 侧栏通知/设置 iconfont，对齐原 ai-b-t-action-svg 22px */
+.ai-b-t-action-icon.iconfont {
+  font-size: 22px;
+  line-height: 1;
+  color: inherit;
+}
+
+.ant-menu-light .ant-menu-item-selected {
+  background: @sider-selected-bg !important;
+  color: @sider-selected-color !important;
+}

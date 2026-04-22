@@ -1,0 +1,47 @@
+@import 'src/assets/styles/variables.less';
+
+.bdd-collapse-section-header {
+  &.bd-collapse-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .bd-collapse-head__main {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    min-width: 0;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  .bd-collapse-head__main:focus-visible {
+    outline: 2px solid @primary-color;
+    outline-offset: 2px;
+  }
+
+  .bd-collapse-head__expand {
+    display: inline-flex;
+    transition: transform 0.25s ease;
+    line-height: 0;
+  }
+
+  .bd-collapse-head__expand img {
+    padding: 5px;
+  }
+
+  .bd-collapse-head__expand.is-collapsed {
+    transform: rotate(180deg);
+  }
+
+  .bd-collapse-head__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: @sider-title-color;
+  }
+}

@@ -1,0 +1,23 @@
+@import (reference) 'src/assets/styles/variables.less';
+
+/* 问号帮助触发器默认样式（原 business-detail .bd-collapse-head__help） */
+.help-hover-popover__trigger {
+  flex-shrink: 0;
+  display: inline-flex;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 0;
+
+  i {
+    font-size: var(--hh-popover-icon-size, 16px);
+    color: var(--hh-popover-icon-color, #575b66);
+    transition: color 0.2s ease;
+  }
+
+  &:hover i {
+    color: var(--hh-popover-icon-hover-color, @primary-color);
+  }
+}

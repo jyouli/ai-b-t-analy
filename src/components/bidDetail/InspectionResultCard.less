@@ -1,0 +1,217 @@
+@import 'src/assets/styles/variables.less';
+
+.bdd-inspection-result-card {
+  .bd-result-card {
+    position: relative;
+    border: 1px solid @border-color;
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #fff;
+  }
+
+  .bd-result-card__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .bd-result-card__row--top {
+    margin-bottom: 10px;
+    align-items: center;
+  }
+
+  .bd-result-card__row--bottom {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid @border-light;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  .bd-result-card__row--single {
+    justify-content: flex-end;
+  }
+
+  .bd-result-card__strip {
+    flex-shrink: 0;
+    min-width: 52px;
+    padding: 0 6px;
+    line-height: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .bd-result-card__strip.is-fail {
+    background: #ffeded;
+    color: #fd6364;
+  }
+
+  .bd-result-card__strip.is-pass {
+    background: #e0f4e8;
+    color: #1ca14d;
+  }
+
+  .bd-result-card__strip.is-pending {
+    background: #f3f5fb;
+    color: #666666;
+  }
+
+  .bd-result-card__strip.is-warn {
+    background: #fff4f2;
+    color: #ff5735;
+  }
+
+  .bd-result-card__score-tag {
+    flex-shrink: 0;
+    padding: 0 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 600;
+    background: #f3f4f6;
+    color: @text-primary;
+  }
+
+  .bd-result-card__title-wrap {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .bd-result-card__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: @text-primary;
+    line-height: 1.5;
+  }
+
+  .bd-result-card__top-actions {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .bd-result-card__lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .bd-result-card__line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: @text-secondary;
+
+    .bd-result-card__action {
+      flex-shrink: 0;
+    }
+  }
+
+  .bd-result-card__line-text {
+    white-space: pre-wrap;
+    line-height: 21px;
+    font-size: 14px;
+    color: #666;
+    flex: 1;
+  }
+
+  .bd-result-card__line-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .bd-result-card__line-check {
+    flex-shrink: 0;
+    color: #16a34a;
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  .bd-result-card__line-error {
+    flex-shrink: 0;
+    color: #fd6364;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  .bd-result-card__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #5c59c6;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+
+    &.cancel {
+      color: #333333;
+    }
+
+    > span {
+      line-height: 1;
+    }
+  }
+
+  .bd-result-card__loc-icon {
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .bd-result-card--ignored {
+    min-height: 72px;
+    background: #f9fafb;
+    border-style: dashed;
+  }
+
+  .bd-result-card__ignored-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+  }
+
+  .bd-result-card__restore {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: 1px solid @border-color;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    color: @text-secondary;
+  }
+
+  .bd-result-card__restore:hover {
+    border-color: @primary-color;
+    color: @primary-color;
+  }
+
+  .bd-result-card--theme-fail .bd-result-card__score-tag {
+    background: #ffeded;
+    color: #fe4e49;
+  }
+
+  .bd-result-card--theme-warn .bd-result-card__score-tag {
+    background: #fef5e3;
+    color: #c77f00;
+  }
+
+  .bd-result-card--theme-pass .bd-result-card__score-tag {
+    background: #e0f4e8;
+    color: #1ca14d;
+  }
+
+  .bd-result-card--theme-pending .bd-result-card__score-tag {
+    background: #f3f5fb;
+    color: #666666;
+  }
+}

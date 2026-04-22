@@ -1,0 +1,26 @@
+.bdd-scan-overlay {
+  &.bd-scan-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    margin-top: 20%;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.88);
+    pointer-events: auto;
+    border-radius: inherit;
+  }
+
+  .bd-scan-overlay__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bd-scan-overlay__gif {
+    max-width: min(100%, 320px);
+    height: auto;
+    display: block;
+  }
+}

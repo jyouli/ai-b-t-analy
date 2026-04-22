@@ -1,0 +1,193 @@
+@import './variables.less';
+
+.flex-row {
+    display: flex;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+.flex-align-center {
+    align-items: center;
+}
+.flex-justify-center {
+    justify-content: center;
+}
+.flex-justify-between {
+    justify-content: space-between;
+}
+.flex-justify-around {
+    justify-content: space-around;
+}
+.flex-justify-end {
+    justify-content: flex-end;
+}
+.flex-justify-start {
+    justify-content: flex-start;
+}
+.flex-justify-end {
+    justify-content: flex-end;
+}
+.flex-row-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.flex-shrink-0 {
+    flex-shrink: 0; // 不被积压
+}
+.flex-1 {
+    flex: 1;
+}
+.flex-2 {
+    flex: 2;
+}
+.flex-3 {
+    flex: 3;
+}
+.flex-row-gap-8{
+    row-gap: 8px;
+}
+
+.flex-row-gap-12{
+    row-gap: 12px;
+}
+
+.flex-row-gap-16{
+    row-gap: 16px;
+}
+
+.flex-col-gap-8{
+    column-gap: 8px;
+}
+
+.flex-col-gap-12{
+    column-gap: 12px;
+}
+
+.flex-col-gap-16{
+    column-gap: 16px;
+}
+
+.cursor-p{
+    cursor: pointer;
+}
+
+.color-6{
+    color: #666;
+}
+
+.color-9{
+    color: #999;
+}
+
+/* 文本行数 */
+.text-line-1, .text-line-2, .text-line-3 { 
+    display: -webkit-box;
+    overflow: hidden;
+    /* autoprefixer: ignore next 修复-webkit-box-orient编译后丢失 */
+    -webkit-box-orient: vertical;
+}
+.text-line-1 { -webkit-line-clamp: 1; } // 最大1行
+.text-line-2 { -webkit-line-clamp: 2; } // 最大2行
+.text-line-3 { -webkit-line-clamp: 3; } // 最大3行
+
+
+i{
+    font-style: normal;
+}
+
+/* 选标 / 审标标题区彩星：常驻自动循环（与按钮共用 keyframes，节奏略慢） */
+.ai-title-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 10px;
+  vertical-align: middle;
+  animation: ai-start-btn-star-motion 2.6s ease-in-out infinite;
+
+  .star-animation {
+    display: block;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    animation: ai-start-btn-star-glow 2s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+
+    .star-animation {
+      animation: none;
+    }
+  }
+}
+
+/* 选标 / 审标等业务列表「开始」按钮：星星图标在非 disabled 时常驻动效（父级须为 .business-list-page__start-btn） */
+.ai-start-btn-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+
+  img {
+    display: block;
+  }
+}
+
+.business-list-page__start-btn:not(:disabled) .ai-start-btn-star {
+  animation: ai-start-btn-star-motion 1.35s ease-in-out infinite;
+
+  img {
+    animation: ai-start-btn-star-glow 1.05s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+
+    img {
+      animation: none;
+    }
+  }
+}
+
+@keyframes ai-start-btn-star-motion {
+  0%,
+  100% {
+    transform: scale(1) rotateZ(0deg);
+  }
+
+  33% {
+    transform: scale(1.22) rotateZ(-14deg);
+  }
+
+  66% {
+    transform: scale(1.16) rotateZ(12deg);
+  }
+}
+
+@keyframes ai-start-btn-star-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px fade(@accent-purple, 70%)) drop-shadow(0 0 10px fade(@primary-color, 45%))
+      drop-shadow(0 0 18px fade(@accent-purple, 25%)) brightness(1.05);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 6px fade(@accent-purple, 100%)) drop-shadow(0 0 16px fade(@primary-color, 75%))
+      drop-shadow(0 0 28px fade(@accent-purple, 55%)) brightness(1.35);
+  }
+}

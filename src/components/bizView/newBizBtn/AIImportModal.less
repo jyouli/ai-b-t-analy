@@ -1,0 +1,61 @@
+@import 'src/assets/styles/variables.less';
+
+.ai-upload-modal {
+    .ant-modal-container {
+        .ant-modal-footer {
+            .upload-modal-footer {
+                display: flex;
+                justify-content: flex-end;
+                gap: 8px;
+                
+                .ant-btn {
+                    min-width: 80px;
+                }
+            }
+        }
+    }
+}
+.upload-modal-content {
+    .upload-tips {
+        margin-bottom: 24px;
+        
+        .tips-title {
+            font-size: 14px;
+            color: @text-primary;
+            margin-bottom: 8px;
+        }
+        
+        .tips-desc {
+            font-size: 13px;
+            color: @primary-text;
+            line-height: 1.5;
+            background-color: @primary-bg;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+    }
+
+    .scope-selection-wrapper {
+        margin-top: 16px;
+        
+        .scope-title {
+            font-size: 14px;
+            color: @text-primary;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .scope-checkbox-group {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            
+            .ant-checkbox-wrapper {
+                margin-left: 0;
+            }
+        }
+    }
+}
+

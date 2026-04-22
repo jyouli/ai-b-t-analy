@@ -1,0 +1,109 @@
+@import 'src/assets/styles/variables.less';
+
+.bdd-tab-main {
+  &.bd-card {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid white;
+    box-shadow: 0 0 26px rgba(255, 157, 157, 0.14);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bd-card__top-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 142px;
+    z-index: 0;
+    background: linear-gradient(180deg, #fae4e4 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .bd-card__top-bg .bd-card__top-bg-img {
+    height: 105px;
+    width: 241px;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    right: 16px;
+    z-index: 1;
+  }
+
+  .bd-card__head {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 16px 8px;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .bd-card__title-icon {
+    display: inline-flex;
+    line-height: 0;
+    flex-shrink: 0;
+  }
+
+  .bd-card__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: @text-primary;
+  }
+
+  .bd-card__tabs {
+    padding: 0 12px;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .bd-card__body-wrap {
+    position: relative;
+    flex: 1;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 12px 12px;
+    padding: 12px;
+    background: transparent;
+    overflow: auto;
+    z-index: 1;
+  }
+
+  .bd-card__body-wrap--inspect {
+    background: transparent;
+  }
+
+  .bd-card__overlay {
+    border-radius: 8px;
+  }
+
+  .bd-wps-placeholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    color: @text-secondary;
+    font-size: 14px;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .bd-wps-placeholder__sub {
+    margin: 8px 0 0;
+    font-size: 12px;
+    color: @text-placeholder;
+  }
+
+  .bd-empty {
+    padding: 24px;
+    text-align: center;
+    color: @text-secondary;
+  }
+}

@@ -1,0 +1,39 @@
+.common-confirm-modal,
+.common-warning-modal,
+.common-info-modal {
+  .hc-modal{
+    .modal-sub-title {
+      margin-bottom: 8px;
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 14px;
+    }
+    .modal-text {
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+      word-break: break-all;
+      white-space: pre-line;
+    }
+    .ant-modal-body {
+      padding: 24px 24px 36px;
+    }
+  }
+}
+
+/* 重新上传确认：主按钮走全局 theme colorPrimary；仅微调取消按钮与正文 */
+.ant-modal-wrap.common-confirm-modal.reupload-confirm-modal {
+  .reupload-confirm-modal__doc {
+    font-weight: 600;
+    color: #242524;
+  }
+
+  .modal-text {
+    text-align: center;
+  }
+
+  .ant-modal-footer .ant-btn-default {
+    border-color: #d8d8d8;
+    color: #666666;
+  }
+}

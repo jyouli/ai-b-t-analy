@@ -1,0 +1,98 @@
+@import 'src/assets/styles/variables.less';
+
+.tabs-container-bookmark {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 4px;
+
+  .ant-tabs {
+    flex-shrink: 0;
+
+    .ant-tabs-nav {
+      margin-bottom: 0;
+      padding: 0;
+      background: transparent;
+
+      &::before {
+        display: none;
+      }
+
+      .ant-tabs-nav-wrap {
+        .ant-tabs-nav-list {
+          gap: 2px;
+
+          .ant-tabs-tab {
+            margin: 0;
+            padding: 8px 14px 12px;
+            background: #e5e7eb;
+            border: 1px solid @border-color;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.2s ease;
+
+            &:hover:not(.ant-tabs-tab-active) {
+              background: #d1d5db;
+            }
+
+            &.ant-tabs-tab-active {
+              background: #fff;
+              border-color: @border-color;
+              margin-bottom: -1px;
+              padding-bottom: 13px;
+              z-index: 1;
+              box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.06);
+            }
+
+            .ant-tabs-tab-btn {
+              color: @text-secondary;
+              font-size: 13px;
+
+              &:focus {
+                color: @text-primary;
+              }
+            }
+
+            &.ant-tabs-tab-active .ant-tabs-tab-btn {
+              color: @text-primary;
+              font-weight: 500;
+            }
+
+            .ant-tabs-tab-remove {
+              margin-left: 8px;
+              color: @text-secondary;
+              font-size: 12px;
+
+              &:hover {
+                color: @primary-color;
+              }
+            }
+          }
+        }
+      }
+
+      .ant-tabs-ink-bar {
+        display: none;
+      }
+
+      .ant-tabs-extra-content {
+        display: none;
+      }
+    }
+
+    .ant-tabs-content-holder {
+      display: none;
+    }
+  }
+
+  .tabs-content-wrap {
+    flex: 1;
+    overflow: auto;
+    background: #fff;
+    border: 1px solid @border-color;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+}
