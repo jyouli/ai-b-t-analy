@@ -1,0 +1,26 @@
+---
+description: LESS 完整类名、最外层作用域包裹、禁止滥用 & 拼接 BEM
+globs: "**/*.{less,css,scss}"
+alwaysApply: false
+---
+
+# CSS / LESS 规范
+
+## 1. 最外层作用域类（防全局污染）
+
+-每个页面/模块对应的样式文件，**除 `@import` 外**，应用**一个与路由或页面根节点一致的类名**作为最外层包裹，其下再写本页全部选择器（Less 嵌套一层即可）。
+- 示例：`Detail.less` 根块为 `.business-detail-page { ... }`，其内写 `.bd-header`、`.bd-card__body-wrap` 等，编译后为 `.business-detail-page .bd-header`，避免与其它页面的 `.bd-header` 冲突。
+- **根节点修饰符**（与根类在同一 DOM 节点上，如 `class="business-detail-page business-detail-page--loading"`）**不能**写成后代选择器。任选其一：
+  - 在外层块内使用 **`&.页面根--修饰符`**，生成 `.页面根.页面根--修饰符`；或
+  - 在文件顶层写完整复合选择器 **`.页面根.页面根--修饰符 { }`**（仍仅针对该页，不污染全局）。
+
+## 2. 完整类名（禁止用 `&` 拼 BEM 前缀）
+
+- **不要**使用 `&` 拼接 BEM 元素/修饰符，例如：
+  - 避免：`.block { &__elem { } }`、`.block { &--mod { } }`
+  - 避免：`.block__part { &--sub { } }`（应写成 `.block__part--sub`）
+- **应当**在嵌套内仍写出**完整类名字符串**，例如 `.business-list-page__scroll`、`.bd-card__body-wrap--inspect`。
+- **伪类 / 伪元素 / 状态类**：接在完整类名后，例如 `.bd-header__logo:hover`、`.bd-underline-tabs__item.is-active`、`.business-list-page__clarify-field textarea::placeholder`。
+- **唯一允许的 `&` 用法**：上文「根节点修饰符」中与外层根类链式（`&.foo--bar`），**不得**用 `&__` / `&--` 代替子元素/子修饰符类名。
+
+生成或修改样式时默认遵守以上约定。

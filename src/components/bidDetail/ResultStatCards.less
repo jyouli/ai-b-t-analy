@@ -1,0 +1,107 @@
+@import 'src/assets/styles/variables.less';
+
+.bdd-result-stat-cards {
+  &.bd-stat-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  &.bd-stat-cards--score .bd-stat-card {
+    flex: 1;
+  }
+
+  .bd-stat-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+    padding: 6px 8px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    text-align: left;
+    cursor: default;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+  }
+
+  .bd-stat-card__value {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+
+    .bd-stat-card__num {
+      .bd-stat-card__num-unit {
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .bd-stat-card__sub-num {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.85;
+  }
+
+  .bd-stat-card__label {
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 400;
+  }
+
+  .bd-stat-card--fail {
+    background: #fff4f2;
+    color: #ff5735;
+  }
+
+  .bd-stat-card--fail .bd-stat-card__label {
+    color: #ff5735;
+  }
+
+  .bd-stat-card--pass {
+    background: #e0f4e8;
+    color: #1ca14d;
+  }
+
+  .bd-stat-card--pass .bd-stat-card__label {
+    color: #1ca14d;
+  }
+
+  .bd-stat-card--all {
+    background: #f3f5fb;
+    color: #5c59c6;
+  }
+
+  .bd-stat-card--all .bd-stat-card__label {
+    color: #5c59c6;
+  }
+
+  .bd-stat-card--grey {
+    background: #efefef;
+    color: #333333;
+  }
+
+  .bd-stat-card--grey .bd-stat-card__label {
+    color: #333333;
+  }
+
+  .bd-stat-card.is-clickable {
+    cursor: pointer;
+  }
+
+  .bd-stat-card.is-clickable:hover,
+  .bd-stat-card.is-selected {
+    border-color: currentColor;
+    box-shadow: 0 0 0 1px currentColor;
+  }
+
+  .bd-stat-card:disabled {
+    opacity: 1;
+  }
+}

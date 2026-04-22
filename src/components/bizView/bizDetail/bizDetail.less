@@ -1,0 +1,118 @@
+.ellipsis(@lines: 1, @substract: 0) when (@lines = 1) {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100% - @substract;
+    overflow: hidden;
+}
+
+.ellipsis(@lines) when (@lines > 1) {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: @lines;
+    line-clamp: @lines;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+}
+
+.biz-detail-container {
+    height: 100%;
+    overflow: hidden;
+
+    .ant-spin-container {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: hidden;
+        background-color: #f3f3ff;
+    }
+}
+
+.biz-detail-header {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    justify-content: space-between;
+    background: #fff;
+
+    .detail-header-left {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+    }
+
+    .detail-header-back-btn {
+        width: 28px;
+        height: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .detail-header-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: #4C4C4C;
+        max-width: 360px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .detail-header-desc {
+        font-size: 14px;
+        font-weight: 400;
+        color: #999999;
+        margin-left: 8px;
+        max-width: 240px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.biz-detail-content {
+    flex: 1;
+    overflow: auto;
+}
+.detail-group-box {
+    .detail-group-wrap {
+        background: #fff;
+        margin-bottom: 8px;
+        padding: 24px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .detail-group-header {
+        color: #222;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 16px 0 8px 0;
+    }
+    .detail-group-content {
+        .detail-item-wrap {
+            .item-label {
+                display: inline-flex;
+                align-items: flex-start;
+                gap: 8px;
+                margin-bottom: 4px;
+                max-width: 100%;
+            }
+            .label-text {
+                flex: 1 1 auto;
+                min-width: 0;
+                color: #999;
+                word-break: break-word;
+                .ellipsis(2);
+            }
+            .detail-batch-download {
+                flex-shrink: 0;
+            }
+            .item-value {
+                word-break: break-all;
+            }
+        }
+    }
+}

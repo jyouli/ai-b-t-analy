@@ -1,0 +1,92 @@
+@import 'src/assets/styles/variables.less';
+
+@modal-decor-img: '../../assets/img/modal-bg.png';
+
+/*
+ * 仅作用于封装 Modal（.hc-modal）。
+ * 使用 .ant-modal-wrap .ant-modal.hc-modal 提高优先级，避免与 antd 组件样式抢权重时用 !important。
+ */
+.hc-modal {
+  /* antd v6：顶区渐变与框架在 .ant-modal-container */
+  .ant-modal-container {
+    position: relative;
+    padding: 0;
+    background: @sider-bg;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: @modal-header-gradient-height;
+      background: @modal-header-gradient;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 8px 8px 0 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: @modal-header-decoration-width;
+      height: @modal-header-gradient-height;
+      background: url(@modal-decor-img) no-repeat left top;
+      background-size: @modal-header-decoration-width @modal-header-gradient-height;
+      pointer-events: none;
+      z-index: 0;
+    }
+  }
+
+  &[role='dialog']:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .ant-modal-header {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    padding: 16px;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .ant-modal-header .ant-modal-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: @text-primary;
+  }
+
+  .ant-modal-close {
+    z-index: 2;
+    outline: none;
+    box-shadow: none;
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .ant-modal-body {
+    position: relative;
+    z-index: 1;
+    padding: 0 16px;
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+  }
+
+  .ant-modal-footer {
+    position: relative;
+    z-index: 1;
+    padding: 16px;
+    border-top: none;
+    margin: 0;
+    background: @sider-bg;
+  }
+}

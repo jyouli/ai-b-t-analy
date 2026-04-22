@@ -1,0 +1,97 @@
+@import 'src/assets/styles/variables.less';
+
+.company-list-container {
+    width: 300px;
+    flex-shrink: 0;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.company-list-header {
+    padding: 16px;
+
+    .company-list-header-actions {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+        .ai-create-btn {
+            flex: 1;
+        }
+    }
+    .company-search {
+        .ant-input-prefix {
+            color: @text-placeholder;
+        }
+    }
+}
+
+.company-list-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 12px;
+
+    .company-item {
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        height: 42px;
+        border-radius: 4px;
+        margin-bottom: 4px;
+
+        &:hover {
+            background-color: rgba(245, 245, 245, 1);
+        }
+
+        &.active {
+            background-color: rgba(245, 245, 245, 1);
+            .company-item-name {
+                color: @primary-color;
+            }
+        }
+        .company-item-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background-color: rgba(253, 99, 100, 0.1);
+            color: rgba(253, 99, 100, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-right: 6px;
+            flex-shrink: 0;
+            font-weight: 400;
+        }
+
+        .company-item-name {
+            flex: 1;
+            font-size: 14px;
+            color: rgba(34, 34, 34, 1);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .company-item-actions {
+            display: flex;
+            gap: 8px;
+            margin-left: 8px;
+
+            .action-icon {
+                color: @text-secondary;
+                font-size: 14px;
+
+                &:hover {
+                    color: @primary-color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,129 @@
+@import 'src/assets/styles/variables.less';
+
+.company-detail-container {
+    flex: 1;
+    min-width: 900px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.company-base-info {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    padding: 16px 16px 0 16px;
+    .base-info-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 12px;
+
+        .base-info-left {
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+
+        .company-logo {
+            height: 60px;
+            width: 60px;
+            overflow: hidden;
+            border-radius: 4px;
+            border: 1px solid rgba(221, 221, 221, 1);
+            margin-right: 16px;
+        }
+
+        .company-title-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .company-name {
+            font-size: 16px;
+            font-weight: 500;
+            height: 24px;
+            line-height: 24px;
+            color: @text-primary;
+            margin-bottom: 8px;
+        }
+    }
+    .base-info-details {
+        height: fit-content;
+        transition: height 0.3s ease-in-out;
+        position: relative;
+        padding-bottom: 42px;
+        .detail-group-wrap {
+            padding: 0px;
+        }
+    }
+    .base-info-details.hidden {
+        height: 94px;
+        overflow: hidden;
+    }
+    .expand-btn {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #777777;
+        font-size: 14px;
+        cursor: pointer;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 1) 100%);
+        .anticon {
+            margin-left: 4px;
+        }
+        &:hover {
+            color: @primary-color;
+        }
+    }
+}
+
+.company-relative-content {
+    height: 100%;
+    padding: 2px 24px 2px 24px;
+    background: #fff;
+    margin-top: 12px;
+    overflow: hidden;
+    min-height: 500px;
+
+    .ant-tabs, .ant-tabs-content, .ant-tabs-tabpane {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .ant-tabs-content-holder {
+        flex: 1;
+        min-height: 0;
+        overflow: auto;
+        display: block!important;
+    }
+}
+.relative-list-container {
+    height: 100%;
+    overflow: hidden;
+    // padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .relative-list-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .relative-list-header-search {
+            width: 268px
+        }
+        .relative-list-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+    .biz-list-container {
+        flex: 1;
+    }
+}

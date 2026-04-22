@@ -1,0 +1,41 @@
+@import 'src/assets/styles/variables.less';
+
+/* 与登录设计稿统一的 Input 默认/悬停/聚焦（ConfigProvider theme 补充描边与阴影） */
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-outlined {
+  border-radius: 4px;
+}
+
+.ant-input:not(:disabled):hover,
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover,
+.ant-input-outlined:not(:disabled):hover {
+  border-color: @accent-purple;
+}
+
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled).ant-input-affix-wrapper-focused,
+.ant-input-outlined:focus,
+.ant-input:focus {
+  border-color: @accent-purple;
+}
+
+.ant-input-status-error:not(.ant-input-disabled),
+.ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled),
+.ant-form-item-has-error .ant-input:not(.ant-input-disabled),
+.ant-form-item-has-error .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled) {
+  border-color: @status-failed;
+}
+
+.ant-input-group .ant-input-group-addon {
+  border-radius: 4px;
+}
+
+/* Tooltip：白底由 theme.js 的 colorBgSpotlight 控制；文案单独覆盖，避免动到 colorTextLightSolid（主按钮等仍用浅色字） */
+.ant-tooltip .ant-tooltip-container {
+  padding: 12px;
+  color: #333 !important;
+}
+
+.ant-checkbox-checked{
+  background-color: #FF4D4F;
+}

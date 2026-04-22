@@ -1,0 +1,218 @@
+@import 'src/assets/styles/variables.less';
+
+.business-detail-page {
+  position: relative;
+  min-height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px 24px;
+  box-sizing: border-box;
+  background: @sider-outer-bg;
+  overflow: auto;
+
+  .business-detail-page__bg {
+    position: fixed;
+    left: 0;
+    top: -80px;
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 根容器修饰符须与根类同元素，用 & 生成 .a.a--mod，避免写成后代选择器 */
+  &.business-detail-page--loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+  }
+
+  .business-detail-page__spin {
+    position: relative;
+    z-index: 1;
+  }
+
+  .bd-header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 4px 0 20px;
+  }
+
+  .bd-header__left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    max-width: calc(100% - 150px);
+    /* 不用 overflow:hidden：会裁掉标题旁彩星 drop-shadow 的上下光晕 */
+    overflow: visible;
+  }
+
+  .bd-header__logo {
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    line-height: 0;
+  }
+
+  .bd-header__logo:hover {
+    opacity: 0.9;
+  }
+
+  .bd-header__logo img {
+    display: block;
+    border-radius: 50%;
+  }
+
+  .bd-header__titles {
+    min-width: 0;
+  }
+
+  /* 详情页标题行：与分析中彩星对齐（共用 common.less 中 .ai-title-star 动效） */
+  .bd-header__title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .bd-header__title-star.ai-title-star {
+    margin-top: 0;
+    flex-shrink: 0;
+    /* 光晕最大约 28px blur，留出纵向空间避免仍被 flex/行高边沿裁切 */
+    padding: 10px 2px;
+    box-sizing: content-box;
+    align-self: center;
+  }
+
+  .bd-header__title-star .star-animation {
+    width: 20px;
+    height: 20px;
+  }
+
+  .bd-header__title-row .bd-header__title {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .bd-header__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: @text-primary;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .bd-header__status {
+    font-size: 14px;
+    color: @text-secondary;
+  }
+
+  .bd-header__download {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background: @primary-color;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s, background 0.2s;
+  }
+
+  .bd-header__download:hover:not(:disabled) {
+    opacity: 0.92;
+  }
+
+  .bd-header__download:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .bd-main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .bdd-tab-main .bd-card__body-wrap--doc {
+    min-height: 420px;
+  }
+
+  .bd-wps-doc-loading {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+  }
+
+  .bd-wps-doc {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: 8px;
+  }
+
+  .bd-wps-doc-panels {
+    position: relative;
+    flex: 1;
+    min-height: 400px;
+  }
+
+  .bd-wps-doc-panel .bd-wps-embed {
+    flex: 1;
+    min-height: 400px;
+  }
+
+  .bd-wps-doc__subtabs {
+    flex-shrink: 0;
+  }
+
+  .bd-wps-doc__subtab-label {
+    display: inline-block;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+
+  .bd-wps-embed {
+    position: relative;
+    flex: 1;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bd-wps-embed__inner {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+}
